@@ -1,0 +1,55 @@
+[1:50 PM] Kevin Ou
+    mig_adw -> dev:::prd_tmp
+?[1:50 PM] Kevin Ou
+    prd_adw ->dev:::prd_adw
+
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON DEV_ADW.DS_RPT_RECON_REF TO ADWETLBAT;
+
+
+
+
+GRANT SELECT ON DEV_TMP2.B_MITSUI_ALERT_LIST_DA TO DEV_BIZ_SUMM_VW WITH GRANT OPTION;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON DEV_TMP2.B_MITSUI_ALERT_LIST_DA TO DEV_ETL_UTL WITH GRANT OPTION;
+
+
+
+
+
+
+[2:19 PM] Barry Lu
+    select dbms_metadata.get_ddl('TABLE','U_FULLDS_SUMM_TRX_UAT2','MIG_ADW') from dual;
+?[2:20 PM] Barry Lu
+    GRANT DELETE, INSERT, SELECT, UPDATE ON DEV_ADW.DS_RPT_RECON_REF TO ADWETLBAT;
+ 
+
+
+
+
+https://smartoneshare-my.sharepoint.com/:x:/r/personal/carmen_chik_smartone_com/_layouts/15/doc2.aspx?sourcedoc=%7Be4ba2826-abd9-430e-9c7f-4cd04185564a%7D&action=edit&activeCell=%27Sheet1%27!B58&wdinitialsession=13b9ef2d-9c94-4b96-93b0-edf141899c77&wdrldsc=3&wdrldc=1&wdrldr=AccessTokenExpiredWarning
+
+
+
+
+[10:37 AM] Kevin Ou
+    
+
+[10:33 AM] Lewis Chan
+
+
+done
+
+SQL> desc dual@UDSDWDEV  Name                                      Null?    Type  ----------------------------------------- -------- ----------------------------  DUMMY                                              VARCHAR2(1)
+
+SQL>
+it connected by devdwadm, it must write owns object in UDSDWDEV, no readwrite concept
+
+
+
+
+
+?[10:37 AM] Kevin Ou
+    Built a DB link in production for copy data from production to DEVDWADM
+
+

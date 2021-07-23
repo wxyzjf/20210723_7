@@ -1,0 +1,48 @@
+Select BATCH_NUM,CUST_NUM,SUBR_NUM,HKID_BR,ACTION_CODE,MESSAGE_CODE,EMAIL_ADDRESS,ACTION_OVERDUE,ACTION_BALANCE,
+STATUS,CREATE_USER,CREATE_DATE,COMPLETE_DATE,ACTION_CONTENTS,QR_AMT,QR_EXP_DATE from FES.ZZ_PINV_CHG_PLAN
+
+
+if(len(Trim(Input.SUBR_NUM)) < 1) then " " else Trim(Input.SUBR_NUM)
+if (len(trim(Input.LD_START_DATE)) < 1) then iconv("2999-12-31 ","D4-YMD[4,2,2]") else iconv(Input.LD_START_DATE[1,10],"D4-YMD[4,2,2]") 
+
+
+
+NPM_DB.SMC.LOCAL=
+
+  (DESCRIPTION=
+
+    (LOAD_BALANCE=yes)
+
+    (ADDRESS_LIST=
+
+      (ADDRESS=
+
+        (PROTOCOL=TCP)
+
+        (HOST=vn3NPM1)
+
+        (PORT=55084)
+
+      )
+
+      (ADDRESS=
+
+        (PROTOCOL=TCP)
+
+        (HOST=vn3NPM2)
+
+        (PORT=55084)
+
+      )
+
+    )
+
+    (CONNECT_DATA=
+
+      (SERVER=dedicated)
+
+      (SERVICE_NAME=NPM_DW)
+
+    )
+
+  )

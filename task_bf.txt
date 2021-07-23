@@ -1,0 +1,306 @@
+rick sample:::
+declare
+    cursor etl_du_cur is
+    select d.* from billimg.reload_dw_etl_du d for update;
+    v_rs reload_dw_etl_du%rowtype;
+    rid ROWID;
+begin
+   open etl_du_cur;
+   loop
+        fetch etl_du_cur into v_rs;
+        exit when etl_du_cur%notfound;
+        begin
+            select d.rowid as dd into rid from billimg.dw_etl_du d where D.CUSTOMER_NUMBER=V_RS.CUST_NUM
+            and D.SUBSCRIBER_NUMBER=V_RS.SUBR_NUM
+            and D.EVENT_START_DATE=to_date(substr(V_RS.CALL_START_DTM,0,8), 'yyyymmdd')
+            and D.EVENT_START_HOUR=substr(V_RS.CALL_START_DTM,10,2)
+            and D.EVENT_START_MINUTE=substr(V_RS.CALL_START_DTM,12,2)
+            and D.EVENT_START_SECOND=substr(V_RS.CALL_START_DTM,14,2)
+            --and D.DIALLED_NUMBER=V_RS.DIAL_DIGIT
+            and D.GSM_TELESERVICE_TYPE=substr(V_RS.MD_SVC_REF,0,2)
+            and D.GSM_TELESERVICE_CODE=substr(V_RS.MD_SVC_REF,3,2)
+            and D.GSM_TELESERVICE_MODIFIER=substr(V_RS.MD_SVC_REF,5,2);
+            exception
+                when no_data_found then
+                rid:=null;
+        end;
+        update reload_dw_etl_du set DEST_ROWID=rid where current of etl_du_cur;
+        --commit;
+    end loop;
+end;
+
+
+
+declare
+    cursor etl_du_cur is
+    select d.* from billimg.reload_dw_etl_du d for update;
+    v_rs reload_dw_etl_du%rowtype;
+    rid ROWID;
+begin
+   open etl_du_cur;
+   loop
+        fetch etl_du_cur into v_rs;
+        exit when etl_du_cur%notfound;
+        begin
+            -- insert into billimg.reload_dw_etl_du_rowid
+            select max(d.rowid) keep (dense_rank first order by d.create_date asc) as dd into rid 
+            from billimg.dw_etl_du d where --D.CUSTOMER_NUMBER=V_RS.CUST_NUM and 
+            D.SUBSCRIBER_NUMBER=V_RS.SUBR_NUM
+            and D.EVENT_START_DATE=to_date(substr(V_RS.CREATED_DTM,0,10), 'yyyy/mm/dd')
+            and D.EVENT_START_HOUR=substr(V_RS.CREATED_DTM,12,2)
+            and D.EVENT_START_MINUTE=substr(V_RS.CREATED_DTM,15,2)
+            and D.EVENT_START_SECOND=substr(V_RS.CREATED_DTM,18,2)
+            and D.event_start_date between date'2020-10-04' and date'2020-10-06';
+
+            --and D.DIALLED_NUMBER=V_RS.DIAL_DIGIT
+            --and D.GSM_TELESERVICE_TYPE=substr(V_RS.MD_SVC_REF,0,2)
+            --and D.GSM_TELESERVICE_CODE=substr(V_RS.MD_SVC_REF,3,2)
+            --and D.GSM_TELESERVICE_MODIFIER=substr(V_RS.MD_SVC_REF,5,2);
+            exception
+                when no_data_found then
+                rid:=null;
+        end;
+        update reload_dw_etl_du set DEST_ROWID=rid where current of etl_du_cur;
+
+        --commit;
+    end loop;
+end;
+
+
+SQL> alter session force parallel query parallel 10;
+
+Session altered.
+
+SQL> alter session force parallel dml parallel 10;
+
+Session altered.
+
+SQL> 
+SQL> set timing on;
+
+
+
+
+select * from billimg.DW_ETL_DU
+where plmn_event_registered_on='MLTGO' and subscriber_number='61124474'
+and event_start_date=date '2020-10-06'
+and event_start_hour='19'
+and event_start_minute='49';
+
+
+insert into billimg.reload_dw_etl_du_rowid 
+select tmpb.rowid,tmpa.SUBR_NUM,tmpa.CREATED_DTM,tmpb.CREATE_DATE,
+       tmpb.DATA_VOLUME,tmpb.UPLINK_VOLUME,tmpb.DOWNLINK_VOLUME
+from billimg.reload_dw_etl_du tmpa 
+left outer join billimg.dw_etl_du tmpb 
+on tmpb.SUBSCRIBER_NUMBER=tmpa.SUBR_NUM
+            and tmpb.EVENT_START_DATE=to_date(substr(tmpa.CREATED_DTM,0,10), 'yyyy/mm/dd')
+            and tmpb.EVENT_START_HOUR=substr(tmpa.CREATED_DTM,12,2)
+            and tmpb.EVENT_START_MINUTE=substr(tmpa.CREATED_DTM,15,2)
+            and tmpb.EVENT_START_SECOND=substr(tmpa.CREATED_DTM,18,2)
+            and tmpb.DATA_VOLUME = tmpa.DATA_VOLUME
+            and tmpb.UPLINK_VOLUME = tmpa.UPLINK_VOLUME
+            and tmpb.DOWNLINK_VOLUME = tmpa.DOWNLINK_VOLUME
+where tmpb.event_start_date between date'2020-10-04' and date'2020-10-06'
+      and tmpb.plmn_event_registered_on='MLTGO'
+
+
+
+insert into BILLIMG.DELETE_DW_ETL_DU_ROWID
+select max(DEST_ROWID) keep (dense_rank first order by CREATE_DATE asc) as DEST_ROWID,
+       SUBR_NUM,CREATED_DTM,
+       --CREATE_DATE,
+       DATA_VOLUME,UPLINK_VOLUME,DOWNLINK_VOLUME
+ from billimg.reload_dw_etl_du_rowid
+ group by SUBR_NUM,CREATED_DTM,DATA_VOLUME,UPLINK_VOLUME,DOWNLINK_VOLUME
+
+
+
+select * from billimg.DW_ETL_DU
+where SUBSCRIBER_NUMBER = '63924150' and CUSTOMER_NUMBER = '07752737'
+and INSERT_DATE = to_date('20201012 103342','yyyymmdd hh24miss')
+and EVENT_START_DATE in (
+to_date('20200919','yyyymmdd'),
+to_date('20200920','yyyymmdd'),
+to_date('20200921','yyyymmdd'),
+to_date('20200922','yyyymmdd'),
+to_date('20200923','yyyymmdd'),
+to_date('20200924','yyyymmdd'),
+to_date('20200925','yyyymmdd'),
+to_date('20200926','yyyymmdd'),
+to_date('20200927','yyyymmdd'),
+to_date('20200928','yyyymmdd'),
+to_date('20200929','yyyymmdd'),
+to_date('20200930','yyyymmdd'),
+to_date('20201001','yyyymmdd')
+)
+and COST = 138
+------------------------------------------------------------------------
+
+sqlplus /@nbpdw_billimgbat or Toad
+
+EVENT_START_DATE
+cost+interconnect_price
+CREATED_DATE
+select * from billimg.dw_etl_du_ggsn
+
+------------------------------------------------------------------------
+billimg.reload_dw_etl_du_rowid
+billimg.reload_dw_etl_du
+billimg.dw_etl_du
+
+delete from billimg.dw_etl_du  
+where rowid in (select DEST_ROWID from billimg.DELETE_DW_ETL_DU_ROWID_el)  
+
+insert into BILLIMG.DELETE_DW_ETL_DU_ROWID_el
+select CUSTOMER_NUMBER,SUBSCRIBER_NUMBER,EVENT_START_DATE,EVENT_START_HOUR,EVENT_START_MINUTE,EVENT_START_SECOND,count(*) from (
+
+select tmpb.rowid,
+       tmpb.CUSTOMER_NUMBER,
+       tmpb.SUBSCRIBER_NUMBER,
+       tmpb.EVENT_START_HOUR,
+       tmpb.EVENT_START_MINUTE,
+       tmpb.EVENT_START_SECOND,
+       tmpb.EVENT_START_DATE    
+from billimg.reload_dw_etl_du tmpa 
+left outer join billimg.dw_etl_du tmpb 
+            on  tmpa.CUSTOMER_NUMBER = tmpb.CUSTOMER_NUMBER
+            and tmpa.SUBSCRIBER_NUMBER = tmpb.SUBSCRIBER_NUMBER
+            and to_number(tmpa.cost) = to_number(tmpb.cost) + to_number(tmpb.INTERCONNECT_PRICE)
+            and to_date(substr(tmpa.CALL_START_DTM,1,8),'yyyymmdd') = tmpb.EVENT_START_DATE
+            and substr(tmpa.CALL_START_DTM,10,2) = tmpb.EVENT_START_HOUR
+            and substr(tmpa.CALL_START_DTM,12,2) = tmpb.EVENT_START_MINUTE
+            and substr(tmpa.CALL_START_DTM,14,2) = tmpb.EVENT_START_SECOND           
+            and to_timestamp(tmpa.CREATED_DTM,'mm/dd/yyyy hh24:mi:ss') = tmpb.CREATED_DATE  --11/15/2020 12:36:29 PM
+where tmpb.CUSTOMER_NUMBER is not null
+)group by CUSTOMER_NUMBER,SUBSCRIBER_NUMBER,EVENT_START_DATE,EVENT_START_HOUR,EVENT_START_MINUTE,EVENT_START_SECOND having count(*) > 1   
+
+
+select * from billimg.reload_dw_etl_du
+where CUSTOMER_NUMBER = '11654693' and SUBSCRIBER_NUMBER = '94592811'
+  and CALL_START_DTM = '20201114 144102' 
+
+select * from billimg.dw_etl_du 
+where CUSTOMER_NUMBER = '11654693' and SUBSCRIBER_NUMBER = '94592811' and EVENT_START_DATE = to_date('20201114','yyyymmdd')
+  and EVENT_START_HOUR = '14' and EVENT_START_MINUTE = '41' and EVENT_START_SECOND = '02'
+
+
+------------------------------------------------------------------------
+
+insert into billimg.reload_dw_etl_du_rowid 
+(DEST_ROWID)
+select tmpb.rowid--,tmpb.*--,tmpa.CUSTOMER_NUMBER,tmpa.SUBSCRIBER_NUMBER,
+       --tmpa.CALL_START_DTM--,tmpb.CREATED_DTM
+from billimg.reload_dw_etl_du tmpa 
+left outer join billimg.dw_etl_du tmpb 
+on tmpa.ACCOUNT_NUM = tmpb.ACCOUNT_NUMBER
+and tmpa.CUSTOMER_NUMBER = tmpb.CUSTOMER_NUMBER
+and tmpa.SUBSCRIBER_NUMBER = tmpb.SUBSCRIBER_NUMBER
+and to_date(substr(tmpa.CALL_START_DTM,0,8),'yyyymmdd') = tmpb.EVENT_START_DATE
+and substr(tmpa.CALL_START_DTM,10,2) = tmpb.EVENT_START_HOUR
+and substr(tmpa.CALL_START_DTM,12,2) = tmpb.EVENT_START_MINUTE
+and substr(tmpa.CALL_START_DTM,14,2) = tmpb.EVENT_START_SECOND
+and tmpa.DIALLED_NUMBER = tmpb.DIALLED_NUMBER
+and substr(tmpa.MD_SVC_REF,0,2) = tmpb.GSM_TELESERVICE_TYPE
+and substr(tmpa.MD_SVC_REF,3,2) = tmpb.GSM_TELESERVICE_CODE
+and tmpa.DURATION_OF_EVENT = tmpb.DURATION_OF_EVENT
+and tmpa.RATING_DISCOUNT_1 = tmpb.RATING_DISCOUNT_1
+commit
+
+
+
+--1392
+select count(*) from billimg.dw_etl_du --387618749- 1357
+--delete from  billimg.dw_etl_du
+where rowid in (select DEST_ROWID from billimg.reload_dw_etl_du_rowid where DEST_ROWID is not null) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

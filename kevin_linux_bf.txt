@@ -1,0 +1,145 @@
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> ls -rlth
+total 60K
+-rw-r--r-- 1 adwbat dstage  13K Jul 24 12:02 b_relay42_list0010.pl
+-rw-r--r-- 1 adwbat dstage 7.8K Jul 24 12:02 b_relay42_list0010.pl.20181127
+-rw-r--r-- 1 adwbat dstage 8.8K Jul 24 12:02 b_relay42_list0010.pl.20190124
+-rw-r--r-- 1 adwbat dstage 7.6K Jul 24 12:02 b_relay42_list0010.pl.20181115
+-rwxr-x--- 1 adwbat dstage 1.1K Jul 24 12:02 b_relay42_list0020.pl.20191115
+-rwxr-x--- 1 adwbat dstage 1.1K Jul 24 12:02 b_relay42_list0020.pl
+-rw-r--r-- 1 adwbat dstage 7.8K Jul 24 12:02 b_relay42_list0010.pl.20181114
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> B_RELAY42_LIST_001_TMP^C
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> history|grep mig_adw
+   28  history|grep mig_adw
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> view b_relay42_list0010.pl
+
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> clear
+
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> sqlplus mig_adw/Dwu2091#_mw@$TDPID
+
+SQL*Plus: Release 11.2.0.1.0 Production on Wed Jul 24 16:27:49 2019
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, OLAP,
+Advanced Analytics and Real Application Testing options
+
+SQL> creat table a       
+SP2-0734: unknown command beginning "creat tabl..." - rest of line ignored.
+SQL> create table reload_acb1(a varchar2(20));
+
+Table created.
+
+SQL> quit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, OLAP,
+Advanced Analytics and Real Application Testing options
+/opt/etl/prd/etl/APP/ADW/B_RELAY42_TX_LIST/bin> sqlplus mig_adw/Dwu2091#_mw@$TDPID
+
+SQL*Plus: Release 11.2.0.1.0 Production on Wed Jul 24 16:38:41 2019
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, Real Application Clusters, Automatic Storage Management, OLAP,
+Advanced Analytics and Real Application Testing options
+
+SQL> 
+SQL> 
+SQL> CREATE TABLE MIG_ADW.B_RELAY42_TX_LIST_001_TMP
+  2  (
+  3    ACCT_SUBR_NUM_H                 VARCHAR2(40 BYTE) DEFAULT ' ' NOT NULL,
+  4    ACCT_SUBR_NUM_E                 VARCHAR2(40 BYTE) DEFAULT ' ' NOT NULL,
+  5    ACCT_NUM_H                      VARCHAR2(20 BYTE) DEFAULT ' ' NOT NULL,
+  6    ACCT_NUM_E                      VARCHAR2(20 BYTE) DEFAULT ' ' NOT NULL,
+  7    SUBR_NUM_H                      VARCHAR2(20 BYTE) DEFAULT ' ' NOT NULL,
+  8    SUBR_NUM_E                      VARCHAR2(20 BYTE) DEFAULT ' ' NOT NULL,
+  9    HKID_BR_H                       VARCHAR2(25 BYTE) DEFAULT ' ' NOT NULL,
+ 10    HKID_BR_E                       VARCHAR2(25 BYTE) DEFAULT ' ' NOT NULL,
+ 11    COMM_EMAIL_H                    VARCHAR2(100 BYTE) DEFAULT ' ' NOT NULL,
+ 12    COMM_EMAIL_E                    VARCHAR2(100 BYTE) DEFAULT ' ' NOT NULL,
+ 13    COMM_LANG                       VARCHAR2(40 BYTE) DEFAULT ' ' NOT NULL,
+ 14    BILL_EMAIL_H                    VARCHAR2(100 BYTE) DEFAULT ' ' NOT NULL,
+ 15    BILL_EMAIL_E                    VARCHAR2(100 BYTE) DEFAULT ' ' NOT NULL,
+ 16    CUSTOMER_TYPE                   VARCHAR2(40 BYTE) DEFAULT ' ' NOT NULL,
+ 17    LINE_STATUS                     VARCHAR2(40 BYTE) DEFAULT ' ' NOT NULL,
+ 18    MASKED_FLG                      VARCHAR2(5 BYTE) DEFAULT ' ' NOT NULL,
+ 19    PAYMENT_METHOD                  VARCHAR2(40 BYTE) DEFAULT ' ' NOT NULL,
+ 20    PP_TIER                         VARCHAR2(10 BYTE) DEFAULT ' ' NOT NULL,
+ 21    LOGINNOW_STATUS                 VARCHAR2(20 BYTE) DEFAULT ' ' NOT NULL,
+ 22    SUBR_PLAN_NAME                  VARCHAR2(255 BYTE) DEFAULT ' ' NOT NULL,
+ 23    PLAN_CAT                        VARCHAR2(100 BYTE) DEFAULT ' ' NOT NULL,
+ 24    MAX_LD_EXPIRY_DATE              DATE          DEFAULT TO_DATE('1900-01-01','YYYY-MM-DD') NOT NULL,
+ 25    RDDP_FLG                        VARCHAR2(5 BYTE) DEFAULT ' ' NOT NULL,
+ 26    VWE_FLG                         VARCHAR2(5 BYTE) DEFAULT ' ' NOT NULL,
+ 27    TRAVAL_PAST_6MTHS               VARCHAR2(5 BYTE) DEFAULT ' ' NOT NULL,
+ 28    CREATE_TS                       TIMESTAMP(0)  DEFAULT TO_TIMESTAMP('1900-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS') NOT NULL,
+ 29    REFRESH_TS                      TIMESTAMP(0)  DEFAULT TO_TIMESTAMP('1900-01-01 00:00:00','YYYY-MM-DD HH24:MI:SS') NOT NULL,
+ 30    BLACK_LIST_CUSTOMER_FLG         VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 31    DM_CONSENT_DERIVED_FLG          VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 32    REJECT_ALL_COMM_FLG             VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 33    D_FREEZE_FLG                    VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 34    D_FREEZE_FLG_EMAIL              VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 35    D_FREEZE_FLG_SMS                VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 36    D_LIMITED_CONTACT               VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 37    D_LIMITED_CONTACT_EMAIL         VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 38    D_LIMITED_CONTACT_SMS           VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 39    SUPRT_MMS_FLG                   VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 40    EMAIL_INTERNET_STUFF_EMAIL_FLG  VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 41    EMAIL_INTERNET_STUFF_SMS_FLG    VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 42    FUN_STUFF_EMAIL_FLG             VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 43    FUN_STUFF_SMS_FLG               VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 44    NEWS_FINANCE_INVEST_EMAIL_FLG   VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 45    NEWS_FINANCE_INVEST_SMS_FLG     VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 46    SENSITIVE_SUBJECT_EMAIL_FLG     VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 47    SENSITIVE_SUBJECT_SMS_FLG       VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 48    SPECIAL_OFFER_EMAIL_FLG         VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 49    SPECIAL_OFFER_SMS_FLG           VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL,
+ 50    BLACK_LIST_CUST_WRITHOFF_FLG    VARCHAR2(1 BYTE) DEFAULT ' ' NOT NULL
+ 51  )
+ 52  TABLESPACE ETMPDATA
+ 53  RESULT_CACHE (MODE DEFAULT)
+ 54  PCTUSED    0
+ 55  PCTFREE    0
+ 56  INITRANS   1
+ 57  MAXTRANS   255
+ 58  STORAGE    (
+ 59              INITIAL          8M
+ 60              NEXT             8M
+ 61              MINEXTENTS       1
+ 62              MAXEXTENTS       UNLIMITED
+ 63              PCTINCREASE      0
+ 64              BUFFER_POOL      DEFAULT
+ 65              FLASH_CACHE      DEFAULT
+ 66              CELL_FLASH_CACHE DEFAULT
+ 67             )
+ 68  NOLOGGING 
+ 69  COMPRESS FOR QUERY HIGH 
+ 70  NOCACHE
+ 71  NOPARALLEL
+ 72  MONITORING;
+
+
+GRANT SELECT ON MIG_ADW.B_RELAY42_TX_LIST_001_TMP TO ADWBAT_READ;
+
+GRANT SELECT ON MIG_ADW.B_RELAY42_TX_LIST_001_TMP TO PRD_TMP_READ;
+GRANT DELETE, INSERT, SELECT, UPDATE ON MIG_ADW.B_RELAY42_TX_LIST_001_TMP TO MIG_SUP_ROLE;
+GRANT DELETE, INSERT, SELECT, UPDATE ON MIG_ADW.B_RELAY42_TX_LIST_001_TMP TO PRD_TMP_READ_WRITE;
+
+Table created.
+
+SQL> SQL> SQL> 
+Grant succeeded.
+
+SQL> SQL> 
+Grant succeeded.
+
+SQL>
+
+Grant succeeded.
+
+SQL>    

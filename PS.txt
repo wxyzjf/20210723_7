@@ -1,0 +1,857 @@
+﻿Lan Account : eloisewu/Smart20190723
+
+---------------------------------------------------------------------------------------------------------------------
+
+gzdev02  172.23.42.86
+
+---------------------------------------------------------------------------------------------------------------------
+
+http://172.23.42.86:8080/manager
+Account:admin/000000
+
+---------------------------------------------------------------------------------------------------------------------
+
+CRT:eloise/eloise
+\\gzls04\IS-Dev\Tools\SecureCRT6.5
+172.23.42.86
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+login virtual machine to connect server for our daily work. 
+Please login gzpc14 (ip:192.168.60.214) through remote desktop with your LAN account.
+GZSMARTONE\eloisewu  Smart20190723
+After login success, please install the software / tools described in \\gzpc-master7\IS-Dev\Tools\Dev_Tools_Intro.docx.
+
+Other Guide:
+\\gzpc-master7\IS-DEV\How to login linux server.docx
+
+GZSMARTONE\EloiseWu
+
+---------------------------------------------------------------------------------------------------------------------
+
+isgw account: 
+eloisewu / 2019Welcome   eloisewuSmartone20200418
+Smartoneeloisewu20200713
+Smartoneeloisewu20201019
+1Lo0Baak0Pr6!
+Smartoneeloisewu20210210
+
+sftp eloisewu@isgwsftp
+Smartoneeloisewu20210210
+20210512Smartoneeloisewu
+y
+
+winscp:
+isgwsftp
+eloisewu eloisewuSmartone20200418
+Smartoneeloisewu20200713
+Smartoneeloisewu20201019
+Smartoneeloisewu20210119
+
+]wd1pn&Qqx%JL*/T
+
+
+
+sftp eloisewu@iscorpsftp
+Smartoneeloisewu20210210
+---------------------------------------------------------------------------------------------------------------------
+
+
+???
+switch to use isgwsftp as iscorpsftp will be retired soon.
+Username:  lan account (e.g. vanessatan)
+Password: same as isgw
+Login procedure is the same as iscorpsftp.
+desktop -- sftp --> isgwsftp, cd to username directory
+server -- sftp --> isgwsftp, cd to username directory
+---------------------------------------------------------------------------------------------------------------------
+
+
+etl06 
+su - adwbat
+
+ps:O]&ep<!]C(h4dg?4
+---------------------------------------------------------------------------------------------------------------------
+production db account
+ELOISEWU/smart0717ew   / 
+SUP_ELOISEWU/smart0717ew       
+
+toad:ELOISEWU new pass:smart20191018
+Smart20200117
+Smart20200506
+Smart20200817
+Smart20201120
+sqlplus ELOISEWU/Smart20200117@$TDPID
+Smart20210301
+Smart20210618
+
+SUP_ELOISEWU  new pass:Smart20191018
+Smart20200409
+Smart20200714
+Smart20201015
+Smart20210127
+20210429IS
+Smart20210601
+
+
+sqlplus SUP_ELOISEWU/Smart20200409@$TDPID
+sqlplus SUP_ELOISEWU/Smart20200714@$TDPID
+sqlplus SUP_ELOISEWU/Smart20201015@$TDPID
+---------------------------------------------------------------------------------------------------------------------
+Toad:
+User/Schema:ELOISEWU
+Password:smart0717ew
+Database:UDSDW_SUP
+Home:OraClient11g_home1
+UDSDW_SUP=
+  (DESCRIPTION=
+    (LOAD_BALANCE=yes)
+    (ADDRESS_LIST=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=vn1udsdwdb1)
+        (PORT=25502)
+      )
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=vn1udsdwdb2)
+        (PORT=25502)
+      )
+    )
+    (CONNECT_DATA=
+      (SERVICE_NAME=UDSDW_SUP)
+    )
+  )
+---------------------------------------------------------------------------------------------------------------------
+
+passwordsafe:eloisewu/Smart20190723
+---------------------------------------------------------------------------------------------------------------------
+
+wifi:
+gz-pc-0775/Welcome2015
+---------------------------------------------------------------------------------------------------------------------
+
+connect MIG_ADW : sqlplus mig_adw/Dwu2091#_mw@$TDPID
+sqlplus /@$TDPID @b_relay42_list0010_sqlcmd.sql
+---------------------------------------------------------------------------------------------------------------------
+
+Designer Client AND Director Client:
+
+Host name of the services tier : etl06.smartone.com:9445
+User name : eloisewu
+Password : abc123
+
+test:Project : ETL06.SMARTONE.COM/NBPUAT
+UAT:Project : ETL06.SMARTONE.COM/ADWPRD
+
+---------------------------------------------------------------------------------------------------------------------
+EA:
+User	ETLUSR
+Password	Apu3093#_er
+ETL Database	PRD_ETL
+TNS Name	UDSDW_SUP
+TNS File Directory  C:\app\EloiseWu\product\11.2.0\client_1\network\admin
+
+---------------------------------------------------------------------------------------------------------------------
+
+sftp dwftp@172.31.102.147
+/opt/etl/output/RPT/U_OB_PRE_998_RPT/
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+sqlplus mig_adw/Dwu2091#_mw@$TDPID
+sqlplus /@$TDPID
+sqlplus MIG_BIZ_SUMM/Dwu2092#_mm@$TDPID
+sqlplus ELOISEWU/smart0717ew@$TDPID
+
+---------------------------------------------------------------------------------------------------------------------
+
+vi ~/.bash_profile
+vi /etc/profile
+
+---------------------------------------------------------------------------------------------------------------------
+\\gzls05\PC_data\Eloise
+---------------------------------------------------------------------------------------------------------------------
+
+Also, We need to collect table changes in 2 or 3 time windows instead of sending form individually.
+-	1) 11:30 ~ 12:00
+-	2) 14:30 ~ 15:00
+-	3) 16:30 ~ 17:00
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+dwexaprd01
+su - adwbat
+|rQ1MWCM{EWqDV+?
+
+
+
+sqlplus BP/bp@NBPUAT
+dwexadev01
+su - adwuat
+((fWypR4s*>R9ETJ
+
+---------------------------------------------------------------------------------------------------------------------
+
+modwbat on etl06new
+
+
+B}V_vAKu[4XZ@}&+
+---------------------------------------------------------------------------------------------------------------------
+MODWDB.SMC.LOCAL=
+  (DESCRIPTION=
+    (ADDRESS_LIST=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=uds101-vip)
+        (PORT=20034)
+      )
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=uds102-vip)
+        (PORT=20034)
+      )
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=MODW_BATCH)
+    )
+  )
+
+modw/smcbb3515_dw
+sqlpuls modw/smcbb3515_dw
+---------------------------------------------------------------------------------------------------------------------
+
+
+dsjob -logdetail ADWPRD D_MBIRDIE_COUPON_USG_REC
+director
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+dwexaprd01
+su - adwbat
+|rQ1MWCM{EWqDV+?
+
+
+
+sqlplus BP/bp@NBPUAT
+dwexadev01
+su - adwuat
+W05d[mj=bNw.y|fH
+
+
+
+etl06
+su - bpbat
+zP0?&6kHv9XeaPJB
+
+
+dwexaprd01
+su - nspbpbat
+cq<UNUCQMh5L5+Mm
+dwexaprd01.hksmartone.com[NBPDB1]
+
+
+etl06
+su - modwbat
+!&L4aOE|GjizGUXy
+
+
+
+etl06
+su - revrptbat
+OkolB14KsgBe3*p/
+
+
+
+
+dwexa03
+su - logexbat
+895@q_}B[>Gdr.W9
+LOGEXADM/smartone2014
+
+
+
+
+NBP_BATCH.SMC.LOCAL=
+  (DESCRIPTION=
+    (LOAD_BALANCE=yes)
+    (ADDRESS_LIST=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=uds103-vip)
+        (PORT=25808)
+      )
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=uds104-vip)
+        (PORT=25808)
+      )
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=NBP_DW)
+    )
+  )
+
+
+
+
+NBP_BATCH.SMC.LOCAL=
+  (DESCRIPTION=
+    (LOAD_BALANCE=yes)
+    (ADDRESS_LIST=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=vn1nbpdb3)
+        (PORT=25808)
+      )
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=vn1nbpdb4)
+        (PORT=25808)
+      )
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=NBP_DW)
+    )
+  )
+
+
+
+macau send to andy lei or mois or spd
+
+
+---------------------------------------------------------------------------------------------------------------------
+sftp user@ip
+
+
+/home/adwbat/CHK_JOB_DEP/APP/ADW> find */bin -name "*.pl"|xargs grep -i SCRIPT_TYPE|grep HIST_SCRIPT_NON_EXPIRE
+
+
+---------------------------------------------------------------------------------------------------------------------
+ sqlplus /@$TDPID
+
+
+SRCFILENAME /opt/dde/etl_dw_esim_status.dat
+TDSVR UDSDWDB_ADWDSBAT
+TDUSR
+TDPWD
+TDDB  prd_tmp
+OUTPUT_FILE_PATH /tmp
+TDTABLE  PRD_TMP.D_ESIM_QR_DETAIL
+ERRTXDATE  000000
+ENV  prd
+REPFILENAME  D_ESIM_QR_DETAIL
+
+
+
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+  CREATE_TS          TIMESTAMP(6)               DEFAULT SYSDATE               NOT NULL,
+  REFRESH_TS         TIMESTAMP(6)               DEFAULT SYSDATE               NOT NULL
+
+
+
+
+
+
+GRANT SELECT ON MIG_ADW.D_BIRDIE_GAMER_LOGIN_DTL TO ADWBAT_READ;
+
+GRANT SELECT ON MIG_ADW.D_BIRDIE_GAMER_LOGIN_DTL TO PRD_ADW_READ;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON MIG_ADW.D_BIRDIE_GAMER_LOGIN_DTL TO PRD_ADW_READ_WRITE;
+
+
+
+
+
+
+ crontab -l
+
+
+
+set define on;
+define tx_date=to_date('${etlvar::TXDATE}','YYYY-MM-DD');
+
+
+sftp skytree@10.16.9.166
+g5N6AKZacZ3JAY8L
+
+lftp skytree:g5N6AKZacZ3JAY8L@10.16.9.166
+
+lftp -u skytree,g5N6AKZacZ3JAY8L sftp://10.16.9.166
+
+
+APCOGWSPW21
+  
+SMC\cognosadm
+  
+admcognos     
+dwadm2010
+
+apcogweb03
+SMC\cognosadm
+  
+admcognos     
+
+
+
+#Fd6kt#bTo1wR+v+
+
+
+
+YYYYY
+dwadm2010
+properties:
+C:\Windows\System32\runas.exe /user:SMC\dwreport "C:\Program Files\Internet Explorer\iexplore.exe https://apcogweb21/ibmcognos"
+pcogweb21
+web link:
+https://apcogweb21/ibmcognos/cgi-bin/cognos.cgi?b_action=xts.run&m=portal/cc.xts&m_folder=i61AA440248194936A30BB7CF203C85A9
+
+
+NNN
+[下午5:22] Rick Huang
+    C:\WINDOWS\system32\runas.exe /user:SMC\dwreport "C:\Program Files\Internet Explorer\iexplore.exe https://apcogweb21/ibmcognos"
+
+
+YYY
+[下午5:41] Rick Huang
+    https://apcogweb21/ibmcognos/cgi-bin/cognos.cgi?b_action=xts.run&m=portal/cc.xts&m_folder=i61AA440248194936A30BB7CF203C85A9
+
+
+https://mobilecorpnet.smartone.com
+
+
+https://smartone.csod.com/client/smartone/default.aspx
+
+------------------------------------------------------------------------------------
+set host etl06
+set uid "adwftp"
+set passwd "ftp941abcd"
+##set port ""
+set sftp "/usr/bin/sftp"
+set destpath "/adwftp/output/RPT/U_BM_ROAM_MSISDN_IMSI"
+
+hostname:dwexa03.hksmartone.com
+account:logexbat
+sftp adwftp@etl06
+/adwftp/output/RPT/U_BM_ROAM_MSISDN_IMSI
+
+
+etl06.smartone.com
+account:adwbat
+cd /opt/etl/output/RPT/U_BM_ROAM_MSISDN_IMSI
+------------------------------------------------------------------------------------
+
+
+
+select trunc(sysdate,'mm') from dual
+select trunc(add_months(sysdate,-1),'mm') from dual
+select last_day(add_months(sysdate,-1)) last_day from dual
+
+
+
+
+
+[下午3:35] Kevin Ou
+    \\gzls04\IS-Dev\Admin\GZ-IS Support\Allowance
+
+
+https://mapr.com/training/courses/
+
+
+
+
+backup outlook 
+pw：wxywxywxy
+C:\C\backup.pst
+
+
+un backup files in loacl pc are backuped in github backup_local_C
+
+dispatch loacl C pan
+
+https://outlook.office.com/mail/inbox/id/AAQkAGYxNjA1NzQ1LWMxYTYtNDgwMC04Zjc0LTVhM2IzZDkzMGYxYwAQAL3KDSW72QxLlJLX55c2ZoI%3D
+
+
+
+hdnn01??
+
+
+
+bigdataetl01
+ su - hdsbat
+Password: $mart2018
+Smart2020
+
+Smart2018
+
+
+sqlline -u "jdbc:drill:zk=bigdatamr08.hksmartone.com:5181,bigdatamr09.hksmartone.com:5181,bigdatamr10.hksmartone.com:5181" -n hdsbat -p smart123
+
+
+Plateform : bigdatamr08-10 
+mapr/Smart2019
+
+
+
+https://bigdatamr08:8443/app/mcs/#/app/tables
+
+etl06
+adwftp/ftp941abcd
+
+
+bigdatamr03
+mapr/mapr
+
+
+seq 1000 > test.csv
+
+sftp adwftp@etl06
+ftp941abcd
+
+
+datastage:
+TDUSR
+TDPWD
+obsoleted
+DB account and password. But now we use db wallet
+So no need to fill
+but need to fill in the test  And password of prd_tmp and mig_adw are different
+It seems that the password for toad of ELOISEWU is successful
+
+\\gzpc-master7\IS-Dev\GZDWTeam\temp\Teams_windows_x64.exe
+
+
+http://bigdatamr02.hksmartone.com:8090/
+mapr/mapr
+
+
+
+billimg schema
+sqlplus /@nbpdw_billimgbat
+
+billimg grep rundsjobs can use for reference
+
+etl06
+su - revrptbat
+sqlplus /@NBPDW_REVDWBAT
+/app/REVHOME/script> grep DB dw_revrpt_master.ksh
+DBSRV=NBPDW_REVDWBAT
+
+
+
+
+ DBI->connect("dbi:Oracle:NBP_DW", "billimgbat", "setup2014"
+
+pro:
+sqlplus /@nbpdw_billimgbat
+
+uat:
+billimg/billimg@nbpuat
+GRANT DELETE, INSERT, SELECT, UPDATE ON BILLIMG.BDF_CRBK_OFFER TO BPBILLUSR_ROLE;
+GRANT DELETE, SELECT, UPDATE ON BILLIMG.BDF_CRBK_OFFER TO BP_GNV;
+GRANT SELECT ON BILLIMG.BDF_CRBK_OFFER TO BP_SMART;
+GRANT SELECT ON BILLIMG.BDF_CRBK_OFFER TO BP_SUP_ROLE;
+copy table to another schema:
+schema browser
+copy data to another schema
+
+
+
+support_local
+1Wt7Wye&l5Fm8Lg
+
+
+
+
+
+
+
+
+
+select * from mig_adw.B_RETENT_CORP_COMM_001A_T
+select * from mig_adw.B_RETENT_CORP_COMM_001A01_T
+select * from mig_adw.B_RETENT_CORP_COMM_001A02_T
+select * from mig_adw.B_RETENT_CORP_COMM_001A03_T
+select * from mig_adw.B_RETENT_CORP_COMM_001A04_T
+select * from mig_adw.B_RETENT_CORP_COMM_001A05_T
+select * from mig_adw.B_RETENT_CORP_COMM_001B_T
+select * from mig_adw.B_RETENT_CORP_COMM_001_T
+
+
+
+select * from mig_adw.B_RETENT_CORP_COMM_002A_T
+select * from mig_adw.B_RETENT_CORP_COMM_002A02_T
+select * from mig_adw.B_RETENT_CORP_COMM_002A03_T
+select * from mig_adw.B_RETENT_CORP_COMM_002B01_T
+select * from mig_adw.B_RETENT_CORP_COMM_002C01_T
+select * from mig_adw.B_RETENT_CORP_COMM_002D_T
+select * from mig_adw.B_RETENT_CORP_COMM_002_T
+
+
+
+
+https://bigdatamr08:8443/app/mcs/#/app/login
+mapr
+Smart2019
+bigdatamr08-10的mapr console 的port
+
+
+
+
+[eloisewu@bigdataetl02 ~]$ su - mapr
+Smart2020
+hdsbat/Smart2020
+
+
+
+package etlvar;
+
+$TDUSR = "PRD_ADW_BAT";
+$TDPWD = "smc1000";
+$ETL_DB = "prd_etl";
+$AUTO_DB = "PRD_ETL";
+$ETLDB = "PRD_ETL";
+$ADWDB = "PRD_ADW";
+$BIZDB = "PRD_BIZ_SUMM";
+$DB_USER = "prd_etl_bat";
+$TMPDB = "PRD_TMP";
+$TDDSN="UDSDWDB_ADWETLBAT";
+
+
+
+https://bigdatamr03.hksmartone.com:8090/proxy
+mapr console 
+mapr/mapr
+
+
+
+[7/2 4:25 PM] Stone Shek
+    $etlvar::DS_MLOAD = "Y";  # Y - indicate a multiload job and N - indicate a fastload job
+​[7/2 4:26 PM] Stone Shek
+please set $etlvar::DS_MLOAD = "Y";  
+in perl script
+
+
+set head off;
+set verify off;
+set trimspool on;
+set newpage 0;
+set pagesize 0;
+set lines 2500;
+set termout off;
+set serveroutput off;
+set feedback off;
+set echo off;
+set trimout on;
+set colsep |;
+set timing off;
+
+GRANT SELECT ON BILLIMG.BM_SMS_COMM_03_T TO BP_CGN;
+grant select on table default.test_el to user hdssmart;
+
+"C:\Program Files (x86)\WinSCP\WinSCP.com" ftps://appdwftp:2026 /explicit
+appfstpsvc
+XE#v2n0nxL
+
+
+etl02 spark job
+https://apmaprp05.hksmartone.com:8090/cluster
+mapr/mpar
+
+
+apcogwspw03 Cognos -dwreport_dwadm2010
+https://apcogwspw03/ibmcognos
+pass:dwadm2010
+
+
+BILLIMG datastage project ： NBPPRD
+
+select segment_name,tablespace_name,round(sum(bytes)/1024/1024/1024,1) from dba_segments
+where tablespace_name='EHISTDATAN_M1'
+and segment_name='IDP_CALL_LOG_DETAILS'
+group by segment_name,tablespace_name
+
+where create_ts >= date '2020-12-31' and create_ts < date '2021-01-01'
+
+GRANT SELECT ON BILLIMG.BM_SMS_COMM_05_T TO BP_CGN;
+
+
+QR:::
+eloisewu
+Smart2021
+
+Smart20210210
+
+
+sample target table 001_T -> sub table will be 001A01_T , 001A02_T ,001B01_T
+
+
+
+
+https://bigdataetl02:8888/login?next=%2Flab%3F
+smart123
+
+
+Select * from mig_adw.BM_CNC_COMM_H
+TD_PRD_BI
+GRANT SELECT ON MIG_ADW.BM_CNC_COMM_H TO ADW_CGS_READ_ONLY_ROLE;
+
+
+
+
+
+host:etl08.hksmartone.com:9446
+user:adwbat
+password:smart123
+
+ 
+db: 
+TNS : UDSDWDEV_DEVDWADM = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = idsdev35.hksmartone.com)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = DWDEV3)))
+schema: DEV_TMP2
+devdwadm/DWdev_2017
+
+
+
+
+
+find . -name "*pl"|xargs grep C_RPT_SIMO_REV
+
+find / -name C_RPT_SIMO_REV
+
+select * from PRD_ETL.ETL_AUTO_GEN_PK
+
+
+nohup ksh job.ksh &
+
+
+Plateform : bigdatamr08-10 
+mapr/Smart2019
+
+
+Select ','||lower(column_name) from all_tab_columns where table_name like '%B_BM_ICT_COMM_RPT_001_T%' and owner like '%%' order by column_id;
+
+
+
+
+
+find . -name "*pl*"|xargs grep -i u_univ_exps_alert_summ
+
+
+
+grep -rn "sftp_footprint"  /opt/etl/prd/etl/APP/ADW
+
+
+select * from DBA_PART_TABLES
+
+db: TNS : UDSDWDEV_DEVDWADM = (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = idsdev35.hksmartone.com)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = DWDEV3)))
+schema: DEV_TMP2
+devdwadm/DWdev_2017
+
+
+-------------------
+ 
+
+Batch server: dwexa03
+
+Batch account: logexbat
+
+ 
+
+DB user: LOGEXADM
+
+Password: smartone2014
+
+ 
+
+DB connection:
+
+NPM_DB.SMC.LOCAL=
+
+  (DESCRIPTION=
+
+    (LOAD_BALANCE=yes)
+
+    (ADDRESS_LIST=
+
+      (ADDRESS=
+
+        (PROTOCOL=TCP)
+
+        (HOST=vn3NPM1)
+
+        (PORT=55084)
+
+      )
+
+      (ADDRESS=
+
+        (PROTOCOL=TCP)
+
+        (HOST=vn3NPM2)
+
+        (PORT=55084)
+
+      )
+
+    )
+
+    (CONNECT_DATA=
+
+      (SERVER=dedicated)
+
+      (SERVICE_NAME=NPM_DW)
+
+    )
+
+  )
+
+select dbms_metadata.get_ddl('TABLE','U_FULLDS_SUMM_TRX_UAT2','MIG_ADW') from dual;s
+
+cognos
+BUV
+GRANT SELECT ON mig_adw.B_BM_ICT_COMM_RPT_006_T TO ADW_CGS_READ_ONLY_ROLE;
+
+
+
+insert into PRD_ETL.ETL_AUTO_GEN_PK values('MIG_ADW','BM_ICT_COMM_RPT','CASE_ID');
+
+
+
+
+grep -r "SMC/dw_ftp" ./           
+
+
+
+
+
+my $TMPDB="${etlvar::TMPDB}";
+my $ADWDB="${etlvar::ADWDB}";
+
+sqlplus ADWDXUSR/Smartone123@$TDPID
+
+insert into PRD_ETL.ETL_AUTO_GEN_PK values('MIG_ADW','BM_ICT_COMM_RPT','CASE_ID');
+
